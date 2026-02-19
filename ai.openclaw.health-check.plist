@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>ai.openclaw.health-check</string>
+    
+    <key>ProgramArguments</key>
+    <array>
+        <string>/bin/bash</string>
+        <string>/Users/va7server/.openclaw/workspace/scripts/gateway-health-check.sh</string>
+    </array>
+    
+    <!-- 每 5 分钟运行一次 -->
+    <key>StartInterval</key>
+    <integer>300</integer>
+    
+    <!-- 开机自启动 -->
+    <key>RunAtLoad</key>
+    <true/>
+    
+    <!-- 如果脚本退出，不自动重启（因为是定时任务，不是常驻服务） -->
+    <key>KeepAlive</key>
+    <false/>
+    
+    <!-- 日志输出 -->
+    <key>StandardOutPath</key>
+    <string>/Users/va7server/.openclaw/logs/health-check-stdout.log</string>
+    <key>StandardErrorPath</key>
+    <string>/Users/va7server/.openclaw/logs/health-check-stderr.log</string>
+    
+    <!-- 环境变量 -->
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>PATH</key>
+        <string>/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin</string>
+    </dict>
+</dict>
+</plist>
